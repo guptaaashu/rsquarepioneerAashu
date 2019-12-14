@@ -35,6 +35,8 @@
                                                     <th>Driver Name</th>
                                                     <th>Date</th>
                                                     <th>Diesel Consumed</th>
+						    <th>Diesel Rate</th>
+						    <th>Total</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -46,6 +48,9 @@
 						    <td >{{d.bus.driver_name.first_name}}</td>
 						    <td >{{d.date}}</td>
                                                     <td>{{ d.diesel_consumed }} Litres</td>
+						    <td>{{ d.diesel_rate }}</td>
+						    <td>{{ d.total }}</td>
+						    </script>
                                                 </tr>
                                             {% endfor %}
                                             </tbody>

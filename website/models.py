@@ -191,6 +191,8 @@ class Diesel(models.Model):
    bus = models.ForeignKey(Bus, on_delete=models.CASCADE, related_name='bus')
    diesel_consumed=models.IntegerField(validators=[MinValueValidator(0)])
    date=models.DateField(default=datetime.now, blank=True)
+   diesel_rate=models.IntegerField(validators=[MinValueValidator(0)],default=74)
+   total=models.IntegerField(validators=[MinValueValidator(0)],default=1000)
    def __str__(self):
       return str(self.bus.bus_no)+str(self.date)
                   

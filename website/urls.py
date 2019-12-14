@@ -10,6 +10,7 @@ urlpatterns = [
     path('viewstudent/', views.view_student, name='viewstudent'),
     path('drivers/', views.viewdriver, name='viewdrivers'),
     path('adddriver/', views.adddriver, name='adddriver'),
+    path('adddiesel/', views.adddiesel, name='adddiesel'),
     path('conductors/', views.conductor, name='conductors'),
     path('addconductor/', views.addconductor, name='addconductor'),
     path('viewbuses/', views.bus, name='viewbus'),

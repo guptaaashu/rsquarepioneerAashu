@@ -4,7 +4,7 @@ from collections import OrderedDict
 from .fusioncharts import FusionCharts
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
-from .forms import RegistrationForm, StudentAddForm, DriverAddForm, ConductorAddForm, BusAddForm, RouteAddForm, AddOwnerForm, StudentFormWithDate
+from .forms import RegistrationForm, StudentAddForm, DriverAddForm, ConductorAddForm, BusAddForm, RouteAddForm, AddOwnerForm, StudentFormWithDate,DieselAddForm
 from .forms import SchoolAddForm, TeacherAddForm, InUserAddForm, FeeCollectorAddForm
 from .models import Student, Driver, Conductor, Bus, Route, Owner, School, Teacher, PBSUser, FeeCollector, Diesel
 from django.contrib import messages
@@ -139,6 +139,22 @@ def addbus(request):
     else:
         form = BusAddForm()
     return render(request, 'addbus.html', {'form': form})
+
+
+@login_required
+def adddiesel(request):
+    if request.method == "POST":
+        form = DieselAddForm(request.POST)
+        if form.is_valid():
+            x=form.save(commit=False)
+            x.total= x.diesel_consumed*x.diesel_rate
+            x.save()
+            messages.success(request, 'Expenses Added Sucessfully')
+            return redirect('diesel')
+    else:
+        form = DieselAddForm()
+    return render(request, 'addexpenses.html', {'form': form})
+
 @login_required
 def routes(request):
     try:

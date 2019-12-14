@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from .models import Student, Driver, Conductor, Bus, Route, Owner, School, Teacher, PBSUser, FeeCollector
+from .models import Student, Driver, Conductor, Bus, Route, Owner, School, Teacher, PBSUser, FeeCollector, Diesel
 from tempus_dominus.widgets import DatePicker
 from django.core.validators import RegexValidator
 from dal import autocomplete
@@ -207,6 +207,12 @@ class SchoolAddForm(forms.ModelForm):
     class Meta:
         model = School
         fields = '__all__'
+
+class DieselAddForm(forms.ModelForm):
+    class Meta:
+        model = Diesel
+        fields = ('bus','diesel_consumed','date','diesel_rate')
+
 
 class TeacherAddForm(forms.ModelForm):
     class Meta:
