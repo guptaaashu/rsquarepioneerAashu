@@ -1,0 +1,89 @@
+{% extends 'dashboardlayout.html' %}
+{% load static %}
+{% load bootstrap3 %}
+{% block title %}
+Add Bus
+{% endblock %}
+{% block content %}
+    <div class="row">
+                            <div class="col-sm-12">
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading"><h3 class="panel-title">Add Bus</h3></div>
+                                    <div class="panel-body">
+                                        <form class="form-horizontal" action="" method="post">
+                                           {% csrf_token %}
+                 <div class="row">
+                     <h3>Bus Details</h3>
+                     <hr>
+                     <div class="col-md-12">
+                         <div class="row">
+                             <div class="col-md-6">
+                                 {% bootstrap_field form.bus_no layout='horizontal' %}
+                             </div>
+                             <div class="col-md-6">
+                                 {% bootstrap_field form.insurance layout='horizontal' %}
+                             </div>
+                         </div>
+                         <div class="row">
+                             <div class="col-md-6">
+                                 {% bootstrap_field form.tax layout='horizontal' %}
+                             </div>
+                             <div class="col-md-6">
+                                 {% bootstrap_field form.fitness layout='horizontal' %}
+                             </div>
+                         </div>
+                         <div class="row">
+                             <div class="col-md-6">
+                                 {% bootstrap_field form.permit layout='horizontal' %}
+                             </div>
+
+                         </div>
+                     </div>
+                     <div class="row">
+
+                         <div class="col-md-12">
+                              <h3>Managers Details</h3>
+                         <hr>
+                             <div class="row">
+                                 <div class="col-md-6">
+                                     {% bootstrap_field form.driver_name  layout='horizontal'%}
+                                 </div>
+                                 <div class="col-md-6">
+                                     <a href="{% url 'adddriver' %}">
+                                         <button class="btn btn-primary" type="button">+</button></a>
+                                 </div>
+                             </div>
+                             <div class="row">
+                                 <div class="col-md-6">
+                                     {% bootstrap_field form.conductor_name layout='horizontal'%}
+                                 </div>
+                                 <div class="col-md-6">
+                                     <a href="{% url 'addconductor' %}">
+                                         <button class="btn btn-primary" type="button">+</button></a>
+                                 </div>
+                             </div>
+                             <div class="row">
+                                 <div class="col-md-6">
+                                     {% bootstrap_field form.owner_name layout='horizontal'%}
+                                 </div>
+                                 <div class="col-md-6">
+                                     <a href="{% url 'addowner' %}">
+                                         <button class="btn btn-primary" type="button">+</button></a>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+
+                 <div class="row">
+                     <div class="col-md-12 text-center"><button type="submit" class="btn btn-primary " id="sa-success" style="margin-bottom: 10px;">Submit</button></div>
+                     </div>
+
+                                        </form>
+                                    </div> <!-- panel-body -->
+                                </div> <!-- panel -->
+                            </div> <!-- col -->
+                        </div> <!-- End row -->
+
+
+{% endblock %}

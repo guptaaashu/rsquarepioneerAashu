@@ -1,0 +1,142 @@
+
+{% extends 'dashboardlayout.html' %}
+{% load static %}
+{% block title  %}
+
+    Invoice {{ student.first_name }} {{ student.last_name }}
+{% endblock %}
+{% block content  %}
+  <!-- Page-Title -->
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="page-header-title">
+                                    <h4 class="pull-left page-title">Invoice</h4>
+                                    <ol class="breadcrumb pull-right">
+                                        <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+                                        <li><a href="{% url 'viewstudent' %}">Student</a></li>
+                                        <li class="active">Invoice</li>
+                                    </ol>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="panel panel-default">
+                                    <!-- <div class="panel-heading">
+                                        <h4>Invoice</h4>
+                                    </div> -->
+                                    <div class="panel-body">
+
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <div class="invoice-title">
+                                                    <h4 class="pull-right">Order # 12345</h4>
+                                                    <img src="{% static 'assets/images/logo_white_1.png' %}" alt="logo" height="70">
+                                                </div>
+                                                <hr>
+                                                <div class="row">
+                                                    <div class="col-xs-6">
+                                                        <address>
+                                                            <strong>Billed To:</strong><br>
+                                                            {{ student.first_name }}  {{ student.last_name }}<br>
+                                                            {{ student.address }}
+                                                        </address>
+                                                    </div>
+                                                    <div class="col-xs-6 text-right">
+                                                        <address>
+                                                            <strong>Billed From:</strong><br>
+                                                            Pioneer Bus Service<br>
+                                                            1234 Main<br>
+                                                            Apt. 4B<br>
+                                                            Springfield, ST 54321
+                                                        </address>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xs-6">
+                                                        <address>
+                                                            <strong>Payment Method:</strong><br>
+                                                           CASH<br>
+
+                                                        </address>
+                                                    </div>
+                                                    <div class="col-xs-6 text-right">
+                                                        <address>
+                                                            <strong>Order Date:</strong><br>
+                                                            {{ date }}<br><br>
+                                                        </address>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-heading">
+                                                        <h3 class="panel-title"><strong>Order summary</strong></h3>
+                                                    </div>
+                                                    <div class="panel-body">
+                                                        <div class="table-responsive">
+                                                            <table class="table">
+                                                                <thead>
+                                                                <tr>
+                                                                    <td>Months</td>
+
+                                                                    <td class="text-center"><strong>Fee</strong></td>
+                                                                    <td class="text-right"><strong>Totals</strong></td>
+                                                                </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                <!-- foreach ($order->lineItems as $line) or some such thing here -->
+                                                                <tr>
+                                                                    <td><div class="input-group">
+                                                            <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-autoclose">
+                                                            <span class="input-group-addon bg-custom b-0"><i class="mdi mdi-calendar text-white"></i></span>
+                                                        </div><!-- input-group --></td>
+
+                                                                    <td class="text-center">{{ student.fee_per_month }}&#8377;</td>
+                                                                    <td class="text-right">{{ student.fee_per_month }}&#8377;</td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <td class="thick-line"></td>
+                                                                    <td class="thick-line"></td>
+                                                                    <td class="thick-line text-center">
+                                                                        <strong>Subtotal</strong></td>
+                                                                    <td class="thick-line text-right">{{ student.fee_per_month }}&#8377;</td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <td class="no-line"></td>
+                                                                    <td class="no-line"></td>
+                                                                    <td class="no-line text-center">
+                                                                        <strong>Total</strong></td>
+                                                                    <td class="no-line text-right"><h4 class="m-0">{{ student.fee_per_month }}&#8377;</h4></td>
+                                                                </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+
+                                                        <div class="hidden-print">
+                                                            <div class="pull-right">
+                                                                <a href="javascript:window.print()" class="btn btn-success waves-effect waves-light"><i class="fa fa-print"></i></a>
+                                                                <a href="#" class="btn btn-primary waves-effect waves-light">Send</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div> <!-- end row -->
+                                    </div> <!-- panel body -->
+                                </div> <!-- end panel -->
+
+                            </div> <!-- end col -->
+
+                        </div>
+
+
+{% endblock %}

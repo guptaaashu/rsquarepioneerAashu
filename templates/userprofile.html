@@ -1,0 +1,62 @@
+{% extends 'dashboardlayout.html' %}
+{% block title  %}
+    Student| Profile | {{ student.first_name }} {{ stident.last_name }}
+{% endblock  %}
+{% block content %}
+
+                          <!-- Page-Title -->
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="page-header-title">
+                                    <h4 class="pull-left page-title">Student-Profile</h4>
+                                    <ol class="breadcrumb pull-right">
+                                        <li><a href="{% url 'dashboard' %}">Pioneer Bus Service</a></li>
+                                        <li class="active">Student-profile</li>
+                                    </ol>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </div>
+    <div class="row" style="padding:5px; margin:5px;" >
+        <!-- edit form column -->
+
+
+        <div class="col-lg-8 order-lg-1 personal-info">
+            <form role="form">
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label form-control-label">Username</label>
+                    <div class="col-lg-9">
+                        <input class="form-control" type="text" value="{{user.username}}" disabled/>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label form-control-label">Email</label>
+                    <div class="col-lg-9">
+                        <input class="form-control" type="text" value="{{user.Email}}" disabled/>
+                    </div>
+                </div>
+            <div class="form-group row">
+                    <label class="col-lg-3 col-form-label form-control-label">Date Joined</label>
+                    <div class="col-lg-9">
+                        <input class="form-control" type="email" value="{{ user.date_joined}}" disabled/>
+                    </div>
+                </div>
+                 <div class="form-group row">
+                    <label class="col-lg-3 col-form-label form-control-label">Role</label>
+                    <div class="col-lg-9">
+                        <input class="form-control" type="email" value="{{ user.role}}" disabled/>
+                    </div>
+                </div>
+
+                <br>
+            </form>
+        </div>
+        <div class="col-lg-4 order-lg-0 text-center">
+            <img src="{% if user.picture %}{{ user.picture.url }}{% else %}//api.adorable.io/avatars/120/trickst3r.png{% endif %}" class="mx-auto img-fluid rounded-circle img-circle" alt="avatar" width="200px" height='200px'style="border-radius: 50%;"/>
+
+
+        </div>
+    </div>
+
+
+{% endblock %}

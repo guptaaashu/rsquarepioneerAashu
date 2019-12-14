@@ -1,0 +1,95 @@
+{% extends 'dashboardlayout.html' %}
+{% block title  %}
+    Teacher| Profile | {{ teacher.first_name }} {{ teacher.last_name }}
+{% endblock  %}
+{% block content %}
+
+                          <!-- Page-Title -->
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="page-header-title">
+                                    <h4 class="pull-left page-title">Teacher-Profile</h4>
+                                    <ol class="breadcrumb pull-right">
+                                        <li><a href="{% url 'dashboard' %}">Pioneer Bus Service</a></li>
+                                        <li class="active">Student-profile</li>
+                                    </ol>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </div>
+    <div class="row" style="padding:5px; margin:5px;" >
+        <!-- edit form column -->
+
+
+        <div class="col-lg-8 order-lg-1 personal-info">
+            <form role="form">
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label form-control-label">First name</label>
+                    <div class="col-lg-9">
+                        <input class="form-control" type="text" value="{{teacher.first_name}}" disabled/>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label form-control-label">Last name</label>
+                    <div class="col-lg-9">
+                        <input class="form-control" type="text" value="{{teacher.last_name}}" disabled/>
+                    </div>
+                </div>
+                {% if student.user != NULL %}
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label form-control-label">Email</label>
+                    <div class="col-lg-9">
+                        <input class="form-control" type="email" value="{{ teacher.user.email }}" disabled/>
+                    </div>
+                </div>
+                {% endif %}
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label form-control-label">School</label>
+                    <div class="col-lg-9">
+                        <input class="form-control" type="text" value="{{ teacher.school_name }}" disabled/>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label form-control-label">Address</label>
+                    <div class="col-lg-9">
+                        <input class="form-control" type="text" value="" placeholder="{{teacher.address}}" disabled/>
+                    </div>
+                </div>
+            <div class="form-group row">
+                    <label class="col-lg-3 col-form-label form-control-label">Phone Number</label>
+                    <div class="col-lg-9">
+                        <input class="form-control" type="text" value="{{teacher.phone_number}}" disabled/>
+                    </div>
+                </div>
+
+            <div class="form-group row">
+                    <label class="col-lg-3 col-form-label form-control-label">Bus</label>
+                    <div class="col-lg-9">
+                        <input class="form-control" type="text" value="{{teacher.bus}}" disabled/>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label form-control-label">Fee Per Month</label>
+                    <div class="col-lg-9">
+                        <input class="form-control" type="text" value="{{teacher.fee_per_month}}" disabled/>
+                    </div>
+                </div>
+            <div class="form-group row">
+                    <label class="col-lg-3 col-form-label form-control-label">Security Deposti</label>
+                    <div class="col-lg-9">
+                        <input class="form-control" type="text" value="{{teacher.security_deposit}}" disabled/>
+                    </div>
+                </div>
+                <br>
+            </form>
+        </div>
+        <div class="col-lg-4 order-lg-0 text-center">
+            <img src="//api.adorable.io/avatars/120/trickst3r.png" class="mx-auto img-fluid rounded-circle" alt="avatar" />
+
+
+        </div>
+    </div>
+
+
+{% endblock %}

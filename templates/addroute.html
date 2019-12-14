@@ -1,0 +1,46 @@
+{% extends 'dashboardlayout.html' %}
+{% load static %}
+{% load bootstrap3 %}
+{% block title %}
+Add Route
+{% endblock %}
+{% block content %}
+    <div class="row">
+                            <div class="col-sm-12">
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading"><h3 class="panel-title">Route Add Form</h3></div>
+                                    <div class="panel-body">
+                                        <form class="form-horizontal" action="" method="post">
+                                           {% csrf_token %}
+                 <div class="row">
+                     <div class="col-md-12">
+                         <div class="row">
+                             <div class="col-md-6">
+                                 {% bootstrap_field form.route_no layout='horizontal'%}
+                             </div>
+
+                         </div>
+                         <hr>
+                         <div class="row">
+                             <div class="col-md-6">
+                                 {% bootstrap_field form.origin layout='horizontal'%}
+                             </div>
+                             <div class="col-md-6">
+                                 {% bootstrap_field form.destination layout='horizontal' %}
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+
+                 <div class="row">
+                     <div class="col-md-12 text-center"><button id="sa-success" type="submit" class="btn btn-primary " style="margin-bottom: 10px;">Submit</button></div>
+                     </div>
+
+                                        </form>
+                                    </div> <!-- panel-body -->
+                                </div> <!-- panel -->
+                            </div> <!-- col -->
+                        </div> <!-- End row -->
+
+
+{% endblock %}

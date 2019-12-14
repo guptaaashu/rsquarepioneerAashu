@@ -1,0 +1,133 @@
+{% extends 'dashboardlayout.html' %}
+{% block title  %}
+    Student| Profile | {{ student.first_name }} {{ stident.last_name }}
+{% endblock  %}
+{% block content %}
+
+                          <!-- Page-Title -->
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="page-header-title">
+                                    <h4 class="pull-left page-title">Student-Profile</h4>
+                                    <ol class="breadcrumb pull-right">
+                                        <li><a href="{% url 'dashboard' %}">Pioneer Bus Service</a></li>
+                                        <li class="active">Student-profile</li>
+                                    </ol>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    {{ student.first_name }} {{ student.last_name }}
+                </div>
+                <div class="panel-body">
+                    <div class="row" style="padding:5px; margin:5px;" >
+        <!-- edit form column -->
+
+
+        <div class="col-lg-8 order-lg-1 personal-info">
+            <form role="form">
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label form-control-label">First name</label>
+                    <div class="col-lg-9">
+                        <input class="form-control" type="text" value="{{student.first_name}}" disabled/>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label form-control-label">Last name</label>
+                    <div class="col-lg-9">
+                        <input class="form-control" type="text" value="{{student.last_name}}" disabled/>
+                    </div>
+                </div>
+            <div class="form-group row">
+                    <label class="col-lg-3 col-form-label form-control-label">Date of Birth</label>
+                    <div class="col-lg-9">
+                        <input class="form-control" type="email" value="{{ student.date_of_birth }}" disabled/>
+                    </div>
+                </div>
+                {% if student.user != NULL %}
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label form-control-label">Email</label>
+                    <div class="col-lg-9">
+                        <input class="form-control" type="email" value="{{ student.user.email }}" disabled/>
+                    </div>
+                </div>
+                {% endif %}
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label form-control-label">School</label>
+                    <div class="col-lg-9">
+                        <input class="form-control" type="text" value="{{ student.school_name }}" disabled/>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label form-control-label">Class</label>
+                    <div class="col-lg-3">
+                        <input class="form-control" type="url" value="{{student.class_name}}" disabled/>
+                    </div>
+                     <label class="col-lg-3 col-form-label form-control-label">Section</label>
+                    <div class="col-lg-3">
+                        <input class="form-control" type="url" value="{{student.section_name}}" disabled/>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label form-control-label">Address</label>
+                    <div class="col-lg-9">
+                        <input class="form-control" type="text" value="" placeholder="{{student.address}}" disabled/>
+                    </div>
+                </div>
+            <div class="form-group row">
+                    <label class="col-lg-3 col-form-label form-control-label">Phone Number</label>
+                    <div class="col-lg-9">
+                        <input class="form-control" type="text" value="{{student.phone_number}}" disabled/>
+                    </div>
+                </div>
+            <div class="form-group row">
+                    <label class="col-lg-3 col-form-label form-control-label">Blood Group</label>
+                    <div class="col-lg-9">
+                        <input class="form-control" type="text" value="{{student.blood_group}}" disabled/>
+                    </div>
+                </div>
+            <div class="form-group row">
+                    <label class="col-lg-3 col-form-label form-control-label">Route No</label>
+                    <div class="col-lg-9">
+                        <input class="form-control" type="text" value="{{student.route_no}}" disabled/>
+                    </div>
+                </div>
+            <div class="form-group row">
+                    <label class="col-lg-3 col-form-label form-control-label">Fathers Name</label>
+                    <div class="col-lg-9">
+                        <input class="form-control" type="text" value="{{student.fathers_name}}" disabled/>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label form-control-label">Fee Per Month</label>
+                    <div class="col-lg-9">
+                        <input class="form-control" type="text" value="{{student.fee_per_month}}" disabled/>
+                    </div>
+                </div>
+            <div class="form-group row">
+                    <label class="col-lg-3 col-form-label form-control-label">Security Deposti</label>
+                    <div class="col-lg-9">
+                        <input class="form-control" type="text" value="{{student.security_deposit}}" disabled/>
+                    </div>
+                </div>
+                <br>
+            </form>
+        </div>
+        <div class="col-lg-4 order-lg-0 text-center">
+            <img src="{% if student.image %}{{ student.image.url }}{% else %}//api.adorable.io/avatars/120/trickst3r.png{% endif %}" class="mx-auto img-fluid rounded-circle img-circle" alt="avatar" width="200px" height='200px'style="border-radius: 50%;"/>
+
+
+        </div>
+    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}

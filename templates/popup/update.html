@@ -1,0 +1,24 @@
+{% extends "popup/base.html" %}
+
+{% block css %}
+{% endblock %}
+
+{% block js %}
+{% endblock %}
+
+{% block main %}
+<div class="layui-container" style="margin: 4px">
+<form class="layui-form" enctype="multipart/form-data"
+action="{{ request.path }}{% if to_field %}?to_field={{ to_field }}{% endif %}"
+method="post">
+{% csrf_token %}
+{{ form.media }}
+{{ form }}
+
+<div class="layui-form-item">
+<div class="layui-input-block">
+<button class="layui-btn">Edit</button>
+</div>
+</div>
+</form>
+</div>

@@ -1,0 +1,105 @@
+{% extends 'dashboardlayout.html' %}
+{% block title  %}
+    Bus | {{ bus.owner.first_name }} {{ bus.owner.last_name }}
+{% endblock  %}
+{% block content %}
+
+                          <!-- Page-Title -->
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="page-header-title">
+                                    <h4 class="pull-left page-title">Bus Details</h4>
+                                    <ol class="breadcrumb pull-right">
+                                        <li><a href="{% url 'dashboard' %}">Pioneer Bus Service</a></li>
+                                        <li class="active">Owner-profile</li>
+                                    </ol>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <b>{{ bus.bus_no }}</b> | {{ bus.owner_name.first_name }} {{ bus.owner_name.last_name }}
+                </div>
+                <div class="panel-body">
+                    <div class="row" style="padding:5px; margin:5px;" >
+        <!-- edit form column -->
+
+
+        <div class="col-lg-8 order-lg-1 personal-info">
+            <form role="form">
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label form-control-label">Bus Number</label>
+                    <div class="col-lg-9">
+                        <input class="form-control" type="text" value="{{bus.bus_no}}" disabled/>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label form-control-label">Owner Name</label>
+                    <div class="col-lg-9">
+                        <input class="form-control" type="text" value="{{bus.owner_name.first_name}} {{ bus.owner_name.last_name }}" disabled/>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label form-control-label">Driver Name</label>
+                    <div class="col-lg-9">
+                        <input class="form-control" type="email" value="{{ bus.driver_name.first_name }} {{ bus.driver_name.last_name }}" disabled/>
+                    </div>
+                </div>
+
+
+
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label form-control-label">Conductor Name</label>
+                    <div class="col-lg-9">
+                        <input class="form-control" type="text" value="" placeholder="{{bus.conductor_name.first_name}} {{bus.conductor_name.last_name}}" disabled/>
+                    </div>
+                </div>
+            <div class="form-group row">
+                    <label class="col-lg-3 col-form-label form-control-label">Fitness Upto</label>
+                    <div class="col-lg-9">
+                        <input class="form-control" type="text" value="{{bus.fitness}}" disabled/>
+                    </div>
+                </div>
+            <div class="form-group row">
+                    <label class="col-lg-3 col-form-label form-control-label">Insurance Upto</label>
+                    <div class="col-lg-9">
+                        <input class="form-control" type="text" value="{{bus.insurance}}" disabled/>
+                    </div>
+                </div>
+            <div class="form-group row">
+                    <label class="col-lg-3 col-form-label form-control-label">Tax Paid Upto</label>
+                    <div class="col-lg-9">
+                        <input class="form-control" type="text" value="{{bus.tax}}" disabled/>
+                    </div>
+                </div>
+
+            <div class="form-group row">
+                    <label class="col-lg-3 col-form-label form-control-label">Permit</label>
+                    <div class="col-lg-9">
+                        <input class="form-control" type="text" value="{{bus.permit}}" disabled/>
+                    </div>
+                </div>
+
+
+                <br>
+            </form>
+        </div>
+        <div class="col-lg-4 order-lg-0 text-center">
+            <h3>{{ bus.owner_name.first_name }} {{ bus.owner_name.last_name }}</h3>
+            <img src="//api.adorable.io/avatars/120/trickst3r.png" class="mx-auto img-fluid rounded-circle" alt="avatar" />
+
+
+        </div>
+    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}

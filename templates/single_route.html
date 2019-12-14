@@ -1,0 +1,69 @@
+{% extends 'dashboardlayout.html' %}
+{% block title  %}
+    Route
+{% endblock  %}
+{% block content %}
+
+                          <!-- Page-Title -->
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="page-header-title">
+                                    <h4 class="pull-left page-title">Route Details</h4>
+                                    <ol class="breadcrumb pull-right">
+                                        <li><a href="{% url 'dashboard' %}">Pioneer Bus Service</a></li>
+                                        <li class="active">Route</li>
+                                    </ol>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <b>{{ route.route_no }}</b>
+                </div>
+                <div class="panel-body">
+                    <div class="row" style="padding:5px; margin:5px;" >
+        <!-- edit form column -->
+
+
+        <div class="col-lg-8 order-lg-1 personal-info">
+            <form role="form">
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label form-control-label">Route Number</label>
+                    <div class="col-lg-9">
+                        <input class="form-control" type="text" value="{{route.route_no}}" disabled/>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label form-control-label">Origin</label>
+                    <div class="col-lg-9">
+                        <input class="form-control" type="text" value="{{route.origin}} " disabled/>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label form-control-label">Destination</label>
+                    <div class="col-lg-9">
+                        <input class="form-control" type="email" value="{{ route.destination }}" disabled/>
+                    </div>
+                </div>
+
+
+
+
+
+                <br>
+            </form>
+        </div>
+
+    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}
