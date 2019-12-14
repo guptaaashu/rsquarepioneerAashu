@@ -1,5 +1,5 @@
 Babel==2.7.0
-Django==2.2.7
+Django==2.2.8
 django-ajax-selects==1.7.1
 django-autocomplete-light==3.4.1
 django-bootstrap3==11.1.0
