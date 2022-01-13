@@ -8,6 +8,6 @@ django-phonenumber-field==3.0.1
 django-popup-field==0.1.6
 django-tempus-dominus==5.1.2.9
 phonenumbers==8.10.23
-Pillow==6.2.1
+Pillow==9.0.0
 pytz==2019.3
 sqlparse==0.3.0
